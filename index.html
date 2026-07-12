@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TaskFlow | To-Do List App</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link 
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" 
+        rel="stylesheet"
+    >
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+    <main class="app-container">
+
+
+        <!-- Application Header -->
+
+       <header class="app-header">
+
+    <div class="header-top">
+
+        <div>
+            <h1>
+                TaskFlow
+            </h1>
+
+            <p>
+                Organize your tasks and boost your productivity
+            </p>
+        </div>
+
+
+        <button id="themeToggle" class="theme-btn">
+
+            🌙
+
+        </button>
+
+
+    </div>
+
+</header>
+
+
+
+        <!-- Add Task Section -->
+
+  <section class="task-form">
+
+
+    <input 
+        type="text" 
+        id="taskInput"
+        placeholder="What needs to be done?"
+        autocomplete="off"
+    >
+
+
+
+    <input 
+        type="date"
+        id="taskDate"
+    >
+
+
+
+
+    <select id="taskPriority">
+
+
+        <option value="Low">
+            Low
+        </option>
+
+
+        <option value="Medium" selected>
+            Medium
+        </option>
+
+
+        <option value="High">
+            High
+        </option>
+
+
+    </select>
+  <!-- Search Section -->
+
+<section class="search-box">
+
+
+    <input 
+        type="text"
+        id="searchInput"
+        placeholder="Search your tasks..."
+    >
+
+
+ </section>
+
+
+
+
+
+    <button id="addTaskBtn">
+
+        Add Task
+
+    </button>
+
+
+ </section>
+
+ <section class="sort-section">
+
+    <label for="sortTasks">
+        Sort By
+    </label>
+
+    <select id="sortTasks">
+
+        <option value="newest">
+            Newest First
+        </option>
+
+        <option value="oldest">
+            Oldest First
+        </option>
+
+        <option value="priority">
+            Priority
+        </option>
+
+        <option value="date">
+            Due Date
+        </option>
+
+        <option value="az">
+            A - Z
+        </option>
+
+    </select>
+
+</section>
+ 
+
+        <!-- Task Information -->
+
+     <section class="dashboard">
+
+    <div class="task-info">
+
+        <div class="task-count">
+
+            <span id="totalTasks">
+                0
+            </span>
+
+            <p>Total Tasks</p>
+
+        </div>
+
+        <div class="task-count">
+
+            <span id="completedTasks">
+                0
+            </span>
+
+            <p>Completed</p>
+
+        </div>
+
+    </div>
+
+    <div class="progress-section">
+
+        <div class="progress-header">
+
+            <span>Progress</span>
+
+            <span id="progressPercentage">
+                0%
+            </span>
+
+        </div>
+
+        <div class="progress-bar">
+
+            <div id="progressFill"></div>
+
+        </div>
+
+        <p id="progressText">
+
+            0 of 0 tasks completed
+
+        </p>
+
+    </div>
+
+</section>
+
+        <!-- Task Filters -->
+
+        <nav class="task-filter">
+
+
+            <button class="filter-btn active" data-filter="all">
+
+                All
+
+            </button>
+
+
+            <button class="filter-btn" data-filter="pending">
+
+                Pending
+
+            </button>
+
+
+            <button class="filter-btn" data-filter="completed">
+
+                Completed
+
+            </button>
+
+
+        </nav>
+
+        <section class="task-actions-bar">
+
+    <button id="deleteCompletedBtn">
+
+        🗑 Delete Completed
+
+    </button>
+
+</section>
+
+
+
+
+        <!-- Task List -->
+
+        <section class="tasks-section">
+
+
+            <ul id="taskList">
+
+
+                <!-- JavaScript will insert tasks here -->
+
+
+            </ul>
+
+
+
+            <!-- Empty Message -->
+
+            <div id="emptyState">
+
+
+                <h3>
+                    No tasks available
+                </h3>
+
+
+                <p>
+                    Add your first task to get started.
+                </p>
+
+
+            </div>
+
+
+        </section>
+
+
+
+    </main>
+
+
+ <!-- Toast Notification -->
+
+      <div id="toast" class="toast">
+</div>
+
+
+
+
+<!-- Delete Confirmation Modal -->
+
+<div id="deleteModal" class="modal">
+
+    <div class="modal-content">
+
+        <h2>Delete Task</h2>
+
+        <p>
+            Are you sure you want to delete this task?
+        </p>
+
+        <div class="modal-buttons">
+
+            <button id="cancelDelete" class="cancel-btn">
+                Cancel
+            </button>
+
+            <button id="confirmDelete" class="delete-btn">
+                Delete
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+    <!-- JavaScript -->
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>
